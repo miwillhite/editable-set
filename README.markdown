@@ -209,6 +209,7 @@ If the response from the server indicates a failure, this is called.
 Because EditableSet was designed for Ruby on Rails, the default repopulation method only works with Rails style namings:
 
     model_name[attribute_name]
+    model_name[attribute_modesl_name_attributes][attribute_name]
     model_name[associated_models_name_attributes][0][attribute_name]
     
 It works by creating a map of the models. Then using that map to locate the desired value in the returned dataset.
