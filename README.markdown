@@ -104,7 +104,7 @@ This markup:
           </li>          
           
           <li>
-            <span name="application[former_employers_attributes][2][address_attributes][zipcode]" type="textarea" class="wide">
+            <span name="applicant[former_employers_attributes][2][address_attributes][zipcode]" type="textarea" class="wide">
               90210
             </span>
           </li>
@@ -138,7 +138,7 @@ Generates when activated:
           </li>          
           
           <li>
-            <textarea name="application[former_employers_attributes][2][address_attributes][zipcode]" class="wide">
+            <textarea name="applicant[former_employers_attributes][2][address_attributes][zipcode]" class="wide">
               90210
             </textarea>
           </li>
