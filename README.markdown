@@ -158,40 +158,40 @@ Textfield, Textarea, Checkbox, Select, Radio
 
 ### Callbacks/Hooks
 
-#### beforeLoad()
+`beforeLoad()`
 Triggers before the form has been generated.
 
-#### afterLoad()
+`afterLoad()`
 After the form has been generated.
 
-#### onCancel()
+`onCancel()`
 When the 'Cancel' button is pressed.
 
-#### onSave()
+`onSave()`
 Before the ajax request is sent, after the 'Submit' button is pressed.
 
-#### afterSave()
+`afterSave()`
 After the data has been saved and the data repopulation method has been called.
 
-#### onFail()
+`onFail()`
 If the response from the server indicates a failure, this is called.
 
 
 ### Misc and Experimental
 
-#### globalSave
+`globalSave`
   **Default:** false  
   Set this to `true` if you want all active forms on the page to submit at once, in one request.
 
-#### event
+`event`
   **Default:** 'dblclick'  
   Sets the event to trigger the form conversion.
   
-#### titleElement
+`titleElement`
   **Default:** false  
   The title element, when defined, will be placed outside of the generated form. Also, the 'Submit' and 'Cancel' buttons will append to this rather than the form. This is primarily useful for `<fieldsets>` with `<legends>`.
     
-#### repopulate 
+`repopulate` 
   **Default:** repopulate _(private)_  
   Overrides the default repopulation method.
   
