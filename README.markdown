@@ -199,7 +199,13 @@ If the response from the server indicates a failure, this is called.
 ### Other Features
   
 #### Dynamically set the `action` attribute of the form
-  If you set the `rel` attribute on your container element, editableSet will use that for the form action. This is useful if each set needs to submit to a different url but you only need to initialize the plugin once.
+
+If you set the `rel` attribute on your container element, editableSet will use that for the form action. This is useful if each set needs to submit to a different url but you only need to initialize the plugin once.
+
+  
+#### Keyboard Shortcuts (untested)
+
+`ctl/cmd + s` will Save active forms. `esc` will Cancel active forms. 
   
   
 #### Default Repopulation

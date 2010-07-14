@@ -680,7 +680,7 @@ describe( "EditableSet", function() {
     
     
     // ==========
-    // = onFail =
+    // = onError =
     // ==========
 
     it( "should allow for a custom function to be fired after the form has been submitted, post failed ajax response", function() {
@@ -695,7 +695,7 @@ describe( "EditableSet", function() {
       
       // Set up the options for editableSet
       $('.editable').editableSet({ 
-        onFail: function() {          
+        onError: function() {          
           inputCount = $(':input', this).length;
         }
       });
