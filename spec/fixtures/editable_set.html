@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>EditableSet Test Page</title>
+    
+    <!-- Load jquery and other vendor files -->
+    <script src="../../vendor/jquery-1.4.2.min.js"></script>
+    <script src="../../vendor/scupper.js"></script>
+    
+    <title>Jasmine Test Runner</title>
+    <link rel="stylesheet" type="text/css" href="../../vendor/jasmine-0.11.1/jasmine.css">
+    <script type="text/javascript" src="../../vendor/jasmine-0.11.1/jasmine.js"></script>
+    <script type="text/javascript" src="../../vendor/jasmine-0.11.1/jasmine-html.js"></script>
+
+    <!-- include source files here... -->
+    <script src="../../lib/jquery.editable-set.js"></script>
+
+    <!-- include spec files here... -->
+    <script type="text/javascript" src="../spec_helper.js"></script>
+    <script type="text/javascript" src="../jquery.editable-set.spec.js"></script>
+
+  </head>
+  
+  <body>
+    
+    <div id="test">
+
+    </div>
+    
+    <!-- =========== -->
+    <!-- = Snippet = -->
+    <!-- =========== -->
+    
+    <div id="snippets">
+      
+      <div id="editable_snippet">
+        <div class="editable"> 
+      
+            <h3>Editable Field Set Title</h3>
+      
+            <ul>
+        
+              <li><!-- textfield with no association -->
+                <span name="customer[street1]">123 Fake St.</span>
+              </li>
+        
+              <li><!-- textfield with simple asssociation -->
+                <span name="customer[address_attributes][street1]">123 Fake St.</span>
+              </li>
+        
+              <li><!-- textfield with deeply nested asssociation -->
+                <span name="customer[employer_attributes][address_attributes][street1]">123 Fake St.</span>
+              </li>
+        
+              <li><!-- textfield with deeply nested asssociation, has many relationship -->
+                <span name="customer[employers_attributes][0][address_attributes][street1]">123 Fake St.</span>
+              </li>
+        
+              <li><!-- textfield with deeply nested asssociation, two has many relationships -->
+                <span name="customer[more_employers_attributes][0][addresses_attributes][1][street1]">123 Fake St.</span>
+              </li>
+
+              <li><!-- textfield with extremely deeply nested asssociation, three has many relationships -->
+                <span name="customer[spouses_attributes][0][employers_attributes][1][addresses_attributes][2][street1]">123 Fake St.</span>
+              </li>
+        
+              <li><!-- textfield with extremely deeply nested asssociation, three has one relationships -->
+                <span name="customer[spouse_attributes][employer_attributes][address_attributes][street1]">123 Fake St.</span>
+              </li>
+        
+              <li><!-- hidden field -->
+                <span style="display: none;" type="hidden" name="customer[id]">1</span>
+              </li>
+        
+              <li><!-- textarea -->
+                <span type="textarea" name="customer[notes]">Has a lot of money.</span>
+              </li>
+        
+              <li><!-- select menu, single-dimensional array -->
+                <span type="select" name="customer[gender]" options='["Male", "Female", "Unknown"]'>Unknown</span>
+              </li>
+      
+        
+              <li><!-- select menu, multi-dimensional array -->
+                <span type="select" name="customer[personality]" options='[["Calm", "calm"], ["Excitable", "excitable"], ["Outrageous", "outrageous"]]'>Calm</span>
+              </li>
+        
+              <li><!-- select menu, with custom prompt -->
+                <span type="select" name="customer[level_of_interest]" prompt="How are interested are you?" options='["Not at all", "Somewhat", "Extremely"]'>Not at all</span>
+              </li>
+        
+              <li><!-- radio, single-dimensional array -->
+                <span type="radio" name="customer[eye_color]" options='["Blue", "Brown", "Hazel"]'>Brown</span>
+              </li>
+        
+              <li><!-- radio, multi-dimensional array -->
+                <span type="radio" name="customer[hair_color]" options='[["Brown", "brown"], ["Blonde", "blonde"], ["Red", "red"]]'>Brown</span>
+              </li>
+        
+              <li><!-- checkbox -->
+                <span type="checkbox" name="customer[is_alive]">true</span>
+                <span type="checkbox" name="customer[is_dead]">false</span>
+              </li>
+
+              <li><!-- non-existant input type -->
+                <span type="fail" name="customer[is_confused]">true</span>
+              </li>
+              
+            </ul>
+      
+          </div>
+          
+        </div>
+    </div>
+  
+    <script type="text/javascript">
+      jasmine.getEnv().addReporter(new jasmine.TrivialReporter());
+      jasmine.getEnv().execute();
+    </script>
+  
+  </body>
+</html>
