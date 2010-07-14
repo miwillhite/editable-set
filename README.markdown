@@ -233,7 +233,7 @@ Todos
 Notes/Disclaimers
 -----------------
 
-At this point I have no need to support lesser browsers and have no plans to accomodate them.
+I have no immediate plans to support older browsers than those listed above.
 
 
 Note on Patches/Pull Request
