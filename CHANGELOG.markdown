@@ -3,7 +3,7 @@ Changelog
 
 ## 0.6.1 <small>07/14/10</small>
 
-* Rename onFail to onError
+* Renamed onFail to onError
 * Added Changelog
 
 
