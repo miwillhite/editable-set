@@ -224,7 +224,6 @@ It works by creating a map of the models. Then using that map to locate the desi
 Todos
 -----
 
-* Generate a minified version with the rake task
 * Test in more browsers
 * Allow repopulation to allow the default rails root\_in\_json
 * Test the shortcut key combos
