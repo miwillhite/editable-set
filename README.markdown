@@ -70,7 +70,7 @@ Of course, chances are you will want to define a form action and various other o
       }
     });
 
-For more examples and information about features/callbacks please check out the [Wiki](http://wiki.github.com/miwillhite/editable-set/).
+**For more examples and information about features/callbacks please check out the [Wiki](http://wiki.github.com/miwillhite/editable-set/).**
 
 ## Supports the following input types:
 
