@@ -1,5 +1,5 @@
-EditableSet v0.6
-================
+EditableSet v0.6.1
+==================
 
 EditableSet is a jQuery edit-in-place plugin for editing entire sets of data at once.
 
