@@ -1,4 +1,4 @@
-EditableSet v0.6.1
+EditableSet v0.6.2
 ==================
 
 EditableSet is a jQuery edit-in-place plugin for editing entire sets of data at once.
@@ -80,6 +80,7 @@ Textfield, Textarea, Checkbox, Select, Radio
 Todos
 -----
 
+* Convert docs to jsdoc
 * Test in more browsers
 * Allow repopulation to allow the default rails root\_in\_json
 * Test the shortcut key combos
