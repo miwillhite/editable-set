@@ -5,6 +5,10 @@
 $.fn.testData = {
   "id"                : "2",
   "street1"           : "456 Real St.",
+  "email"             : "george.bluth@gmail.com",
+  "url"               : "http://github.com/miwillhite/editable-set",
+  "age"               : "119",
+  "rage"               : "0",
   "notes"             : "Is actually broke.",
   "gender"            : "Male",
   "personality"       : "Outrageous",
