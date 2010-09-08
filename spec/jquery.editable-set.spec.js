@@ -573,98 +573,98 @@ describe( "EditableSet", function() {
       
       // textfield with no association
       it( "should correctly populate a textfield with no association", function() {
-        expect( $('span[name="customer[street1]"]').text() ).toEqual('456 Real St.');       
+        expect( $('span[data-name="customer[street1]"]').text() ).toEqual('456 Real St.');       
       });
 
       // email field with no association
       it( "should correctly populate an email field with no association", function() {
-        expect( $('span[name="customer[email]"]').text() ).toEqual('george.bluth@gmail.com');       
+        expect( $('span[data-name="customer[email]"]').text() ).toEqual('george.bluth@gmail.com');       
       });
       
       // url field with no association
       it( "should correctly populate a url field with no association", function() {
-        expect( $('span[name="customer[url]"]').text() ).toEqual('http://github.com/miwillhite/editable-set');       
+        expect( $('span[data-name="customer[url]"]').text() ).toEqual('http://github.com/miwillhite/editable-set');       
       });
       
       // number field with no association
       it( "should correctly populate a number field with no association", function() {
-        expect( $('span[name="customer[age]"]').text() ).toEqual('119');       
+        expect( $('span[data-name="customer[age]"]').text() ).toEqual('119');       
       });
       
       // range field with no association
       it( "should correctly populate a range field with no association", function() {
-        expect( $('span[name="customer[rage]"]').text() ).toEqual('0');       
+        expect( $('span[data-name="customer[rage]"]').text() ).toEqual('0');       
       });
       
       // textfield with simple asssociation 
       it( "should correctly populate a textfield with simple asssociation", function() {
-        expect( $('span[name="customer[address_attributes][street1]"]').text() ).toEqual('Address 456 Real St.');        
+        expect( $('span[data-name="customer[address_attributes][street1]"]').text() ).toEqual('Address 456 Real St.');        
       });
 
       // textfield with deeply nested asssociation 
       it( "should correctly populate a textfield with deeply nested asssociation", function() {
-        expect( $('span[name="customer[employer_attributes][address_attributes][street1]"]').text() ).toEqual('Employer Address 456 Real St.');        
+        expect( $('span[data-name="customer[employer_attributes][address_attributes][street1]"]').text() ).toEqual('Employer Address 456 Real St.');        
       });
 
       // textfield with deeply nested asssociation, has many relationship 
       it( "should correctly populate a textfield with deeply nested asssociation, has many relationship", function() {
-        expect( $('span[name="customer[employers_attributes][0][address_attributes][street1]"]').text() ).toEqual('Employers Address 456 Real St.');        
+        expect( $('span[data-name="customer[employers_attributes][0][address_attributes][street1]"]').text() ).toEqual('Employers Address 456 Real St.');        
       });
 
       // textfield with deeply nested asssociation, two has many relationships 
       it( "should correctly populate a textfield with deeply nested asssociation, two has many relationships", function() {
-        expect( $('span[name="customer[more_employers_attributes][0][addresses_attributes][1][street1]"]').text() ).toEqual('Employers Addresses 456 Real St.');        
+        expect( $('span[data-name="customer[more_employers_attributes][0][addresses_attributes][1][street1]"]').text() ).toEqual('Employers Addresses 456 Real St.');        
       });
 
       // textfield with extremely deeply nested asssociation, three has many relationships 
       it( "should correctly populate a textfield with extremely deeply nested asssociation, three has many relationships", function() {
-        expect( $('span[name="customer[spouses_attributes][0][employers_attributes][1][addresses_attributes][2][street1]"]').text() ).toEqual('Spouses Employers Addresses 456 Real St.');        
+        expect( $('span[data-name="customer[spouses_attributes][0][employers_attributes][1][addresses_attributes][2][street1]"]').text() ).toEqual('Spouses Employers Addresses 456 Real St.');        
       });
 
       // textfield with extremely deeply nested asssociation, three has one relationships 
       it( "should correctly populate a textfield with extremely deeply nested asssociation, three has one relationships", function() {
-        expect( $('span[name="customer[spouse_attributes][employer_attributes][address_attributes][street1]"]').text() ).toEqual('Spouse Employer Address 456 Real St.');        
+        expect( $('span[data-name="customer[spouse_attributes][employer_attributes][address_attributes][street1]"]').text() ).toEqual('Spouse Employer Address 456 Real St.');        
       });
 
       // hidden field 
       it( "should correctly populate a hidden field", function() {
-        expect( $('span[name="customer[id]"]').text() ).toEqual('2');        
+        expect( $('span[data-name="customer[id]"]').text() ).toEqual('2');        
       });
 
       // textarea 
       it( "should correctly populate a textarea", function() {
-        expect( $('span[name="customer[notes]"]').text() ).toEqual('Is actually broke.');        
+        expect( $('span[data-name="customer[notes]"]').text() ).toEqual('Is actually broke.');        
       });
 
       // select menu, single-dimensional array 
       it( "should correctly populate a select menu, single-dimensional array", function() {
-        expect( $('span[name="customer[gender]"]').text() ).toEqual('Male');        
+        expect( $('span[data-name="customer[gender]"]').text() ).toEqual('Male');        
       });
 
       // select menu, multi-dimensional array 
       it( "should correctly populate a select menu, multi-dimensional array", function() {
-        expect( $('span[name="customer[personality]"]').text() ).toEqual('Outrageous');        
+        expect( $('span[data-name="customer[personality]"]').text() ).toEqual('Outrageous');        
       });
 
       // select menu, with custom prompt 
       it( "should correctly populate a select menu, with custom prompt", function() {
-        expect( $('span[name="customer[level_of_interest]"]').text() ).toEqual('Extremely');        
+        expect( $('span[data-name="customer[level_of_interest]"]').text() ).toEqual('Extremely');        
       });
 
       // radio, single-dimensional array 
       it( "should correctly populate a radio, single-dimensional array", function() {
-        expect( $('span[name="customer[eye_color]"]').text() ).toEqual('Hazel');        
+        expect( $('span[data-name="customer[eye_color]"]').text() ).toEqual('Hazel');        
       });
 
       // radio, multi-dimensional array 
       it( "should correctly populate a radio, multi-dimensional array", function() {
-        expect( $('span[name="customer[hair_color]"]').text() ).toEqual('Red');        
+        expect( $('span[data-name="customer[hair_color]"]').text() ).toEqual('Red');        
       });
 
       // checkbox 
       it( "should correctly populate a checkbox", function() {
-        expect( $('span[name="customer[is_alive]"]').text() ).toEqual('false');        
-        expect( $('span[name="customer[is_dead]"]').text() ).toEqual('true');
+        expect( $('span[data-name="customer[is_alive]"]').text() ).toEqual('false');        
+        expect( $('span[data-name="customer[is_dead]"]').text() ).toEqual('true');
       });
       
     });

@@ -43,85 +43,85 @@
             <ul>
         
               <li><!-- textfield with no association -->
-                <span name="customer[street1]">123 Fake St.</span>
+                <span data-name="customer[street1]">123 Fake St.</span>
               </li>
         
               <li><!-- email field -->
-                <span name="customer[email]" type="email">john.doe@google.com</span>
+                <span data-name="customer[email]" type="email">john.doe@google.com</span>
               </li>
         
               <li><!-- url field -->
-                <span name="customer[url]" type="url">http://editable-set.heroku.com</span>
+                <span data-name="customer[url]" data-type="url">http://editable-set.heroku.com</span>
               </li>
 
               <li><!-- number field -->
-                <span name="customer[age]" type="number" min="0" max="120" step="1">25</span>
+                <span data-name="customer[age]" data-type="number" data-min="0" data-max="120" data-step="1">25</span>
               </li>
         
               <li><!-- range field -->
-                <span name="customer[rage]" type="range" min="0" max="10" step="10">10</span>
+                <span data-name="customer[rage]" data-type="range" data-min="0" data-max="10" data-step="10">10</span>
               </li>
         
               <li><!-- textfield with simple asssociation -->
-                <span name="customer[address_attributes][street1]">123 Fake St.</span>
+                <span data-name="customer[address_attributes][street1]">123 Fake St.</span>
               </li>
         
               <li><!-- textfield with deeply nested asssociation -->
-                <span name="customer[employer_attributes][address_attributes][street1]">123 Fake St.</span>
+                <span data-name="customer[employer_attributes][address_attributes][street1]">123 Fake St.</span>
               </li>
         
               <li><!-- textfield with deeply nested asssociation, has many relationship -->
-                <span name="customer[employers_attributes][0][address_attributes][street1]">123 Fake St.</span>
+                <span data-name="customer[employers_attributes][0][address_attributes][street1]">123 Fake St.</span>
               </li>
         
               <li><!-- textfield with deeply nested asssociation, two has many relationships -->
-                <span name="customer[more_employers_attributes][0][addresses_attributes][1][street1]">123 Fake St.</span>
+                <span data-name="customer[more_employers_attributes][0][addresses_attributes][1][street1]">123 Fake St.</span>
               </li>
 
               <li><!-- textfield with extremely deeply nested asssociation, three has many relationships -->
-                <span name="customer[spouses_attributes][0][employers_attributes][1][addresses_attributes][2][street1]">123 Fake St.</span>
+                <span data-name="customer[spouses_attributes][0][employers_attributes][1][addresses_attributes][2][street1]">123 Fake St.</span>
               </li>
         
               <li><!-- textfield with extremely deeply nested asssociation, three has one relationships -->
-                <span name="customer[spouse_attributes][employer_attributes][address_attributes][street1]">123 Fake St.</span>
+                <span data-name="customer[spouse_attributes][employer_attributes][address_attributes][street1]">123 Fake St.</span>
               </li>
         
               <li><!-- hidden field -->
-                <span style="display: none;" type="hidden" name="customer[id]">1</span>
+                <span data-style="display: none;" data-type="hidden" data-name="customer[id]">1</span>
               </li>
         
               <li><!-- textarea -->
-                <span type="textarea" name="customer[notes]">Has a lot of money.</span>
+                <span data-type="textarea" data-name="customer[notes]">Has a lot of money.</span>
               </li>
         
               <li><!-- select menu, single-dimensional array -->
-                <span type="select" name="customer[gender]" options='["Male", "Female", "Unknown"]'>Unknown</span>
+                <span data-type="select" data-name="customer[gender]" data-options='["Male", "Female", "Unknown"]'>Unknown</span>
               </li>
       
         
               <li><!-- select menu, multi-dimensional array -->
-                <span type="select" name="customer[personality]" options='[["Calm", "calm"], ["Excitable", "excitable"], ["Outrageous", "outrageous"]]'>Calm</span>
+                <span data-type="select" data-name="customer[personality]" data-options='[["Calm", "calm"], ["Excitable", "excitable"], ["Outrageous", "outrageous"]]'>Calm</span>
               </li>
         
               <li><!-- select menu, with custom prompt -->
-                <span type="select" name="customer[level_of_interest]" prompt="How are interested are you?" options='["Not at all", "Somewhat", "Extremely"]'>Not at all</span>
+                <span data-type="select" data-name="customer[level_of_interest]" data-prompt="How are interested are you?" data-options='["Not at all", "Somewhat", "Extremely"]'>Not at all</span>
               </li>
         
               <li><!-- radio, single-dimensional array -->
-                <span type="radio" name="customer[eye_color]" options='["Blue", "Brown", "Hazel"]'>Brown</span>
+                <span data-type="radio" data-name="customer[eye_color]" data-options='["Blue", "Brown", "Hazel"]'>Brown</span>
               </li>
         
               <li><!-- radio, multi-dimensional array -->
-                <span type="radio" name="customer[hair_color]" options='[["Brown", "brown"], ["Blonde", "blonde"], ["Red", "red"]]'>Brown</span>
+                <span data-type="radio" data-name="customer[hair_color]" data-options='[["Brown", "brown"], ["Blonde", "blonde"], ["Red", "red"]]'>Brown</span>
               </li>
         
               <li><!-- checkbox -->
-                <span type="checkbox" name="customer[is_alive]">true</span>
-                <span type="checkbox" name="customer[is_dead]">false</span>
+                <span data-type="checkbox" data-name="customer[is_alive]">true</span>
+                <span data-type="checkbox" data-name="customer[is_dead]">false</span>
               </li>
 
               <li><!-- non-existant input type -->
-                <span type="fail" name="customer[is_confused]">true</span>
+                <span data-type="fail" data-name="customer[is_confused]">true</span>
               </li>
               
             </ul>
