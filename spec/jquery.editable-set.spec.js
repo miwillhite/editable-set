@@ -230,7 +230,7 @@ describe( "EditableSet", function() {
       });
     
       it( "should have the same key attributes", function() {
-        expect( input ).toHaveAttribute( { name: "customer[number]" } );
+        expect( input ).toHaveAttribute( { name: "customer[age]" } );
         expect( input ).toHaveAttribute( { min: "0" } );
         expect( input ).toHaveAttribute( { max: "120" } );
         expect( input ).toHaveAttribute( { step: "1" } );
