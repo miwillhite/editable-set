@@ -124,11 +124,11 @@ describe( "EditableSet", function() {
     });
     
     
-    // ===================================
-    // = Working with text"-like" inputs =
-    // ===================================
+    // ===========================
+    // = Working with text input = 
+    // ===========================
     
-    describe( "when converting to a text-like field", function() {
+    describe( "when converting to a text field", function() {
       var input;
       
       beforeEach(function() {
@@ -149,6 +149,132 @@ describe( "EditableSet", function() {
       
       it( "should have the same value as the span's text", function() {
         expect( input.val() ).toEqual('123 Fake St.');
+      });
+    
+    });
+
+
+    // ============================
+    // = Working with email input = 
+    // ============================
+    
+    describe( "when converting to an email field", function() {
+      var input;
+      
+      beforeEach(function() {
+        input = $('input[name="customer[email]"]');
+      });
+    
+      it( "should generate an input", function() {   
+        expect( input ).toExist();
+      });
+    
+      it( "should have the same key attributes", function() {
+        expect( input ).toHaveAttribute( { name: "customer[email]" } );
+      });
+    
+      it( "should have an 'email' type", function() {
+        expect( input ).toHaveAttribute( { type: "email" } );
+      });
+      
+      it( "should have the same value as the span's text", function() {
+        expect( input.val() ).toEqual('john.doe@google.com');
+      });
+    
+    });
+
+
+    // ============================
+    // = Working with url input = 
+    // ============================
+    
+    describe( "when converting to a url field", function() {
+      var input;
+      
+      beforeEach(function() {
+        input = $('input[name="customer[url]"]');
+      });
+    
+      it( "should generate an input", function() {   
+        expect( input ).toExist();
+      });
+    
+      it( "should have the same key attributes", function() {
+        expect( input ).toHaveAttribute( { name: "customer[url]" } );
+      });
+    
+      it( "should have a 'url' type", function() {
+        expect( input ).toHaveAttribute( { type: "url" } );
+      });
+      
+      it( "should have the same value as the span's text", function() {
+        expect( input.val() ).toEqual('http://editable-set.heroku.com');
+      });
+    
+    });
+
+
+    // ============================
+    // = Working with number input = 
+    // ============================
+    
+    describe( "when converting to a number field", function() {
+      var input;
+      
+      beforeEach(function() {
+        input = $('input[name="customer[age]"]');
+      });
+    
+      it( "should generate an input", function() {   
+        expect( input ).toExist();
+      });
+    
+      it( "should have the same key attributes", function() {
+        expect( input ).toHaveAttribute( { name: "customer[number]" } );
+        expect( input ).toHaveAttribute( { min: "0" } );
+        expect( input ).toHaveAttribute( { max: "120" } );
+        expect( input ).toHaveAttribute( { step: "1" } );
+      });
+    
+      it( "should have a 'number' type", function() {
+        expect( input ).toHaveAttribute( { type: "number" } );
+      });
+      
+      it( "should have the same value as the span's text", function() {
+        expect( input.val() ).toEqual('25');
+      });
+    
+    });
+
+
+    // ============================
+    // = Working with range input = 
+    // ============================
+    
+    describe( "when converting to a range field", function() {
+      var input;
+      
+      beforeEach(function() {
+        input = $('input[name="customer[rage]"]');
+      });
+    
+      it( "should generate an input", function() {   
+        expect( input ).toExist();
+      });
+    
+      it( "should have the same key attributes", function() {
+        expect( input ).toHaveAttribute( { name: "customer[rage]" } );
+        expect( input ).toHaveAttribute( { min: "0" } );
+        expect( input ).toHaveAttribute( { max: "10" } );
+        expect( input ).toHaveAttribute( { step: "10" } );
+      });
+    
+      it( "should have a 'range' type", function() {
+        expect( input ).toHaveAttribute( { type: "range" } );
+      });
+      
+      it( "should have the same value as the span's text", function() {
+        expect( input.val() ).toEqual('10');
       });
     
     });
@@ -421,7 +547,7 @@ describe( "EditableSet", function() {
       // = Submit the form =
       // ===================
       
-			$(':submit', '.editable').trigger('click');
+      $(':submit', '.editable').trigger('click');
     });
     
     
@@ -444,11 +570,31 @@ describe( "EditableSet", function() {
     // =====================
     
     describe( "populates the DOM with the new values", function(){
-			
+      
       // textfield with no association
-			it( "should correctly populate a textfield with no association", function() {
-        expect( $('span[name="customer[street1]"]').text() ).toEqual('456 Real St.');			  
-			});
+      it( "should correctly populate a textfield with no association", function() {
+        expect( $('span[name="customer[street1]"]').text() ).toEqual('456 Real St.');       
+      });
+
+      // email field with no association
+      it( "should correctly populate an email field with no association", function() {
+        expect( $('span[name="customer[email]"]').text() ).toEqual('george.bluth@gmail.com');       
+      });
+      
+      // url field with no association
+      it( "should correctly populate a url field with no association", function() {
+        expect( $('span[name="customer[url]"]').text() ).toEqual('http://github.com/miwillhite/editable-set');       
+      });
+      
+      // number field with no association
+      it( "should correctly populate a number field with no association", function() {
+        expect( $('span[name="customer[age]"]').text() ).toEqual('119');       
+      });
+      
+      // range field with no association
+      it( "should correctly populate a range field with no association", function() {
+        expect( $('span[name="customer[rage]"]').text() ).toEqual('0');       
+      });
       
       // textfield with simple asssociation 
       it( "should correctly populate a textfield with simple asssociation", function() {
