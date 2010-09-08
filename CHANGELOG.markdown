@@ -1,9 +1,15 @@
 Changelog
 =========
 
+## 0.7.0 <small>09/08/10</small>
+
+* Added some HTML5 inputs (email, url, number, range)
+
+
 ## 0.6.2 <small>07/30/10</small>
 
 * Fixed the removal of the 'active' class
+
 
 ## 0.6.1 <small>07/14/10</small>
 
