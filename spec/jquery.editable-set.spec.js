@@ -124,11 +124,11 @@ describe( "EditableSet", function() {
     });
     
     
-    // ============================
-    // = Working with text inputs =
-    // ============================
+    // ===================================
+    // = Working with text"-like" inputs =
+    // ===================================
     
-    describe( "when converting to a text field", function() {
+    describe( "when converting to a text-like field", function() {
       var input;
       
       beforeEach(function() {
