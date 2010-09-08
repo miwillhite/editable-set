@@ -82,6 +82,7 @@ Todos
 
 * Convert docs to jsdoc
 * Test in more browsers
+* Test checked and unchecked values for checkboxes
 * Allow repopulation to allow the default rails root\_in\_json
 * Test the shortcut key combos
 * Update for HTML5
