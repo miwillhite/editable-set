@@ -134,8 +134,8 @@ describe( "EditableSet", function() {
       beforeEach(function() {
         input = $('input[name="customer[street1]"]');
       });
-    
-      it( "should generate an input", function() {   
+
+      it( "should generate an input", function() {           
         expect( input ).toExist();
       });
     
@@ -1018,7 +1018,7 @@ describe( "EditableSet", function() {
   // = Chaining methods/events =
   // ===========================
   
-  describe( "chainig methods/events", function() {
+  describe( "chaining methods/events", function() {
     
     it( "should be chainable", function() {
       
