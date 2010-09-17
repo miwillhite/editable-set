@@ -1,9 +1,10 @@
 Changelog
 =========
 
-## 0.7.0 <small>09/08/10</small>
+## 0.7.0 <small>09/09/10</small>
 
 * Added some HTML5 inputs (email, url, number, range)
+* Prefixed attributes with data- for html5 and validation purposes
 
 
 ## 0.6.2 <small>07/30/10</small>
