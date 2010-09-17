@@ -360,8 +360,8 @@ describe( "EditableSet", function() {
       });
       
       it( "should always be true", function() {
-        expect( truthyCheckbox.val() ).toEqual('true');        
-        expect( falsyCheckbox.val() ).toEqual('true');        
+        expect( truthyCheckbox.val() ).toEqual( 'true' );        
+        expect( falsyCheckbox.val() ).toEqual( 'true' );        
       });
       
       it( "should be checked if the span's text is truthy", function() {
