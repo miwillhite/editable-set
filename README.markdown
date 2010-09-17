@@ -74,7 +74,7 @@ For more examples and information about features/callbacks please check out the 
 
 ## Supports the following input types:
 
-Textfield, Textarea, Checkbox, Select, Radio
+Text, Email, Url, Number, Range, Textarea, Checkbox, Select, Radio
 
 
 Todos
@@ -82,11 +82,9 @@ Todos
 
 * Convert docs to jsdoc
 * Test in more browsers
+* Test checked and unchecked values for checkboxes
 * Allow repopulation to allow the default rails root\_in\_json
 * Test the shortcut key combos
-* Update for HTML5
-  * Look at new form types
-  * Use data-* instead of invalid attributes
 * Rethink the globalSave option
 * Look at using the form conversion in html5 for future versions
 * Make 'rel' attribute an option, require it be turned on
