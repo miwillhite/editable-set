@@ -517,7 +517,7 @@ describe( "EditableSet", function() {
   // = Dealing with the response =
   // =============================
   
-  describe( "after the form is submitted", function(){
+  describe( "after the form is submitted", function() {
     
     beforeEach(function() {
       // ======================================
@@ -536,6 +536,15 @@ describe( "EditableSet", function() {
       $('.editable').editableSet({ titleElement: 'h3' });
 
       
+    });
+    
+    
+    // ====================
+    // = Form is disabled =
+    // ====================
+    
+    it( "should disable all of the fields and buttons", function() {
+      
       // =======================
       // = Activate the plugin =
       // =======================
@@ -548,14 +557,6 @@ describe( "EditableSet", function() {
       // ===================
       
       $(':submit', '.editable').trigger('click');
-    });
-    
-    
-    // ====================
-    // = Form is disabled =
-    // ====================
-    
-    it( "should disable all of the fields and buttons", function() {
       
       // Make sure each of the inputs is disabled
       var inputs = $(':input', '#test');
@@ -565,12 +566,7 @@ describe( "EditableSet", function() {
     });
     
     
-    // =====================
-    // = Data Repopulation =
-    // =====================
-    
-    describe( "populates the DOM with the new values", function(){
-      
+    var populationTests = function() {
       // textfield with no association
       it( "should correctly populate a textfield with no association", function() {
         expect( $('span[data-name="customer[street1]"]').text() ).toEqual('456 Real St.');       
@@ -666,6 +662,62 @@ describe( "EditableSet", function() {
         expect( $('span[data-name="customer[is_alive]"]').text() ).toEqual('false');        
         expect( $('span[data-name="customer[is_dead]"]').text() ).toEqual('true');
       });
+    };
+    
+    
+    // =====================
+    // = Data Repopulation =
+    // =====================
+    
+    describe( "populates the DOM with the new values", function() {
+      
+      beforeEach(function() {
+        // =======================
+        // = Activate the plugin =
+        // =======================
+
+        $('.editable').trigger( 'dblclick' );
+
+
+        // ===================
+        // = Submit the form =
+        // ===================
+
+        $(':submit', '.editable').trigger('click');
+      });
+      
+      populationTests();
+      
+    });
+
+
+    describe( "populates the DOM with the new values when model is the root in the json response", function() {
+      
+      // ===============================================================
+      // = Override the response to include the model as the root node =
+      // ===============================================================
+      
+      $.ajax = function(opts) {
+        opts.success.call( opts && opts.context, $.fn.testDataWithRoot, 'success' );
+      };
+      
+      
+      beforeEach(function() {
+        // =======================
+        // = Activate the plugin =
+        // =======================
+
+        $('.editable').trigger( 'dblclick' );
+
+
+        // ===================
+        // = Submit the form =
+        // ===================
+
+        $(':submit', '.editable').trigger('click');
+      });
+      
+      populationTests();
       
     });
     
