@@ -85,6 +85,7 @@ Todos
 * Test checked and unchecked values for checkboxes
 * Allow repopulation to allow the default rails root\_in\_json
 * Test the shortcut key combos
+* Test the add input method
 * Rethink the globalSave option
 * Look at using the form conversion in html5 for future versions
 * Make 'rel' attribute an option, require it be turned on
