@@ -669,7 +669,7 @@ describe( "EditableSet", function() {
     // = Data Repopulation =
     // =====================
     
-    describe( "populates the DOM with the new values", function() {
+    describe( "populates the DOM with the new values, no model as root in json", function() {
       
       beforeEach(function() {
         // =======================
@@ -686,12 +686,17 @@ describe( "EditableSet", function() {
         $(':submit', '.editable').trigger('click');
       });
       
+      
+      // ========================
+      // = Run the expectations =
+      // ========================
+      
       populationTests();
       
     });
 
 
-    describe( "populates the DOM with the new values when model is the root in the json response", function() {
+    describe( "populates the DOM with the new values, model is root in json response", function() {
       
       // ===============================================================
       // = Override the response to include the model as the root node =
@@ -716,6 +721,11 @@ describe( "EditableSet", function() {
 
         $(':submit', '.editable').trigger('click');
       });
+      
+      
+      // ========================
+      // = Run the expectations =
+      // ========================
       
       populationTests();
       
