@@ -497,6 +497,11 @@ describe( "EditableSet", function() {
       it( "should _not_ be checked if the span's text is falsy", function() {
         expect( falsyCheckbox.attr('checked') ).toBeFalsy();        
       });
+      
+      it( "should respect custom checked and unchecked values", function() {
+        expect( $('input[name="customer[likes_cheese]"][type="checkbox"]').val() ).toEqual( 'yes' );
+        expect( $('input[name="customer[likes_cheese]"][type="hidden"]').val() ).toEqual( 'no' );
+      });
     });
     
     
@@ -661,6 +666,7 @@ describe( "EditableSet", function() {
       it( "should correctly populate a checkbox", function() {
         expect( $('span[data-name="customer[is_alive]"]').text() ).toEqual('false');        
         expect( $('span[data-name="customer[is_dead]"]').text() ).toEqual('true');
+        expect( $('span[data-name="customer[likes_cheese]"]').text() ).toEqual('no');
       });
     };
     

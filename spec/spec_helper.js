@@ -17,6 +17,7 @@ $.fn.testData = {
   "hair_color"        : "Red",
   "is_alive"          : "false",
   "is_dead"           : "true",
+  "likes_cheese"      : "no",
   "address" : {
     "street1" : "Address 456 Real St."
   },
@@ -36,7 +37,7 @@ $.fn.testData = {
     { 
       "addresses" : [
         { "streetx" : "123 Fail St." },
-        { "street1" : "Employers Addresses 456 Real St." },
+        { "street1" : "Employers Addresses 456 Real St." }
       ]
     }
   ],
@@ -71,83 +72,12 @@ $.fn.testData = {
       "address" : {
         "street1" : "Spouse Employer Address 456 Real St."          
       }
-    },
+    }
   }
 };
 
 $.fn.testDataWithRoot = {
-  "customer" : {
-    "id"                : "2",
-    "street1"           : "456 Real St.",
-    "email"             : "george.bluth@gmail.com",
-    "url"               : "http://github.com/miwillhite/editable-set",
-    "age"               : "119",
-    "rage"               : "0",
-    "notes"             : "Is actually broke.",
-    "gender"            : "Male",
-    "personality"       : "Outrageous",
-    "level_of_interest" : "Extremely",
-    "eye_color"         : "Hazel",
-    "hair_color"        : "Red",
-    "is_alive"          : "false",
-    "is_dead"           : "true",
-    "address" : {
-      "street1" : "Address 456 Real St."
-    },
-    "employer" : {
-      "address" : {
-        "street1" : "Employer Address 456 Real St."
-      }
-    },
-    "employers" : [
-      { 
-        "address" : {
-          "street1" : "Employers Address 456 Real St."
-        }
-      }
-    ],
-    "more_employers" : [
-      { 
-        "addresses" : [
-          { "streetx" : "123 Fail St." },
-          { "street1" : "Employers Addresses 456 Real St." },
-        ]
-      }
-    ],
-    "spouses" : [
-      {
-        "employers" : [
-          {
-            "addresses" : [
-              {
-                "street1" : "123 Fail St."          
-              }
-            ]
-          },
-          {
-            "addresses" : [
-              {
-                "streetx" : "123 Fail St."          
-              },
-              {
-                "streetx" : "123 Fail Again St."          
-              },
-              {
-                "street1" : "Spouses Employers Addresses 456 Real St."          
-              }
-            ]
-          }
-        ]     
-      }
-    ],
-    "spouse" : {
-      "employer" : {
-        "address" : {
-          "street1" : "Spouse Employer Address 456 Real St."          
-        }
-      },
-    }
-  }
+  "customer" : $.fn.testData
 };
 
 

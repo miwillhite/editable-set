@@ -82,13 +82,11 @@ Todos
 
 * Convert docs to jsdoc
 * Test in more browsers
-* Test checked and unchecked values for checkboxes
-* Allow repopulation to allow the default rails root\_in\_json
 * Test the shortcut key combos
-* Test the add input method
+* Test the addInputType() method
 * Rethink the globalSave option
 * Look at using the form conversion in html5 for future versions
-* Make 'rel' attribute an option, require it be turned on
+* Make 'rel' attribute an option, require it to be turned on
 * Update data-* retrieval with jQuery's new data() method when available
 
 
