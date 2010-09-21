@@ -89,6 +89,7 @@ Todos
 * Rethink the globalSave option
 * Look at using the form conversion in html5 for future versions
 * Make 'rel' attribute an option, require it be turned on
+* Update data-* retrieval with jQuery's new data() method when available
 
 
 Notes/Disclaimers
