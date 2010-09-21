@@ -1,7 +1,7 @@
 Changelog
 =========
 
-## 1.0.0 <small>09/09/10</small>
+## 1.0 <small>09/09/10</small>
 
 * Added some HTML5 inputs (email, url, number, range)
 * Prefixed attributes with data- for html5 and validation purposes
