@@ -514,6 +514,18 @@ describe( "EditableSet", function() {
         expect( $('input[name="customer[is_confused]"]') ).not.toExist();
       });
     });
+  
+    
+    // ======================================================================
+    // = Ensuring the standard class and id attributes are transferred okay =
+    // ======================================================================
+    
+    describe( "when attempting to conver to a non-existant form type", function() {
+      it( "should pass in standard html attributes okay", function() {
+        expect( $('input[name="is_classy"]').hasClass('special') ).toBeTruthy();
+        expect( $('input[name="is_classy"]').attr('id') ).toEqual( 'customer_is_classy' );
+      });
+    });
     
   });
   

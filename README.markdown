@@ -11,7 +11,7 @@ Brief Overview
 You can play with a sample at [http://editable-set.heroku.com](http://editable-set.heroku.com).
 
 
-<small>* The default repopulation script will only work if the “name” attributes follow Rails’ conventions. This feature can be overridden.</small>
+<small>* The default repopulation script will only work if the "data-name" attributes follow Rails' conventions. This feature can be overridden.</small>
 
 Requirements
 ------------
@@ -23,14 +23,14 @@ A modern browser (Tested in Firefox 3.6+, Safari 5+, Chrome 5+, and IE 8+).
 
 Usage
 -----
-EditableSet is applied to an element that contains a collection of **named spans**. The individual **span's attributes** define the generated input field.
+EditableSet is applied to an element that contains a collection of **spans** that utilize the HTML5 **data-\*** attribute. The individual **span's attributes** define the generated input field.
 
 
 #### Basic Example:
 
 A 'text' input is the default:
 
-    <span name="applicant[address_attributes][city]" class="required">Portland</span>
+    <span data-name="applicant[address_attributes][city]" class="required">Portland</span>
 
 Generates:
     
@@ -43,7 +43,7 @@ Generates:
 
 Select menus and radio buttons can take a special `options` attribute containing a single or two dimensional array:
 
-    <span name="customer[hair_color]" options='[["Brown", "brown"], ["Blonde", "blonde"], ["Red", "red"]]'>Brown</span>
+    <span data-name="customer[hair_color]" data-options='[["Brown", "brown"], ["Blonde", "blonde"], ["Red", "red"]]'>Brown</span>
     
 Generates: 
     
