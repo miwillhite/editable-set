@@ -509,9 +509,22 @@ describe( "EditableSet", function() {
     // = Working with a non-existant form type =
     // =========================================
     
-    describe( "when attempting to conver to a non-existant form type", function() {
+    describe( "when attempting to convert to a non-existant form type", function() {
       it( "should skip form elements with non-existant form types", function() {
         expect( $('input[name="customer[is_confused]"]') ).not.toExist();
+      });
+    });
+  
+    
+    // ==========================================================
+    // = Ensuring that standard attributes are transferred okay =
+    // ==========================================================
+    
+    describe( "when converting to a form element", function() {
+      it( "should pass in non data attributes without error", function() {
+        expect( $('input[name="customer[is_classy]"]').hasClass('special') ).toBeTruthy();
+        expect( $('input[name="customer[is_classy]"]').attr('id') ).toEqual( 'customer_is_classy' );
+        expect( $('input[name="customer[is_classy]"]').attr('foo') ).toEqual( 'bar' );
       });
     });
     
