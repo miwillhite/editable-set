@@ -124,9 +124,9 @@ describe( "EditableSet", function() {
     });
     
     
-    // ============================
-    // = Working with text inputs =
-    // ============================
+    // ===========================
+    // = Working with text input = 
+    // ===========================
     
     describe( "when converting to a text field", function() {
       var input;
@@ -134,8 +134,8 @@ describe( "EditableSet", function() {
       beforeEach(function() {
         input = $('input[name="customer[street1]"]');
       });
-    
-      it( "should generate an input", function() {   
+
+      it( "should generate an input", function() {           
         expect( input ).toExist();
       });
     
@@ -149,6 +149,132 @@ describe( "EditableSet", function() {
       
       it( "should have the same value as the span's text", function() {
         expect( input.val() ).toEqual('123 Fake St.');
+      });
+    
+    });
+
+
+    // ============================
+    // = Working with email input = 
+    // ============================
+    
+    describe( "when converting to an email field", function() {
+      var input;
+      
+      beforeEach(function() {
+        input = $('input[name="customer[email]"]');
+      });
+    
+      it( "should generate an input", function() {   
+        expect( input ).toExist();
+      });
+    
+      it( "should have the same key attributes", function() {
+        expect( input ).toHaveAttribute( { name: "customer[email]" } );
+      });
+    
+      it( "should have an 'email' type", function() {
+        expect( input ).toHaveAttribute( { type: "email" } );
+      });
+      
+      it( "should have the same value as the span's text", function() {
+        expect( input.val() ).toEqual('john.doe@google.com');
+      });
+    
+    });
+
+
+    // ============================
+    // = Working with url input = 
+    // ============================
+    
+    describe( "when converting to a url field", function() {
+      var input;
+      
+      beforeEach(function() {
+        input = $('input[name="customer[url]"]');
+      });
+    
+      it( "should generate an input", function() {   
+        expect( input ).toExist();
+      });
+    
+      it( "should have the same key attributes", function() {
+        expect( input ).toHaveAttribute( { name: "customer[url]" } );
+      });
+    
+      it( "should have a 'url' type", function() {
+        expect( input ).toHaveAttribute( { type: "url" } );
+      });
+      
+      it( "should have the same value as the span's text", function() {
+        expect( input.val() ).toEqual('http://editable-set.heroku.com');
+      });
+    
+    });
+
+
+    // ============================
+    // = Working with number input = 
+    // ============================
+    
+    describe( "when converting to a number field", function() {
+      var input;
+      
+      beforeEach(function() {
+        input = $('input[name="customer[age]"]');
+      });
+    
+      it( "should generate an input", function() {   
+        expect( input ).toExist();
+      });
+    
+      it( "should have the same key attributes", function() {
+        expect( input ).toHaveAttribute( { name: "customer[age]" } );
+        expect( input ).toHaveAttribute( { min: "0" } );
+        expect( input ).toHaveAttribute( { max: "120" } );
+        expect( input ).toHaveAttribute( { step: "1" } );
+      });
+    
+      it( "should have a 'number' type", function() {
+        expect( input ).toHaveAttribute( { type: "number" } );
+      });
+      
+      it( "should have the same value as the span's text", function() {
+        expect( input.val() ).toEqual('25');
+      });
+    
+    });
+
+
+    // ============================
+    // = Working with range input = 
+    // ============================
+    
+    describe( "when converting to a range field", function() {
+      var input;
+      
+      beforeEach(function() {
+        input = $('input[name="customer[rage]"]');
+      });
+    
+      it( "should generate an input", function() {   
+        expect( input ).toExist();
+      });
+    
+      it( "should have the same key attributes", function() {
+        expect( input ).toHaveAttribute( { name: "customer[rage]" } );
+        expect( input ).toHaveAttribute( { min: "0" } );
+        expect( input ).toHaveAttribute( { max: "10" } );
+        expect( input ).toHaveAttribute( { step: "10" } );
+      });
+    
+      it( "should have a 'range' type", function() {
+        expect( input ).toHaveAttribute( { type: "range" } );
+      });
+      
+      it( "should have the same value as the span's text", function() {
+        expect( input.val() ).toEqual('10');
       });
     
     });
@@ -360,8 +486,8 @@ describe( "EditableSet", function() {
       });
       
       it( "should always be true", function() {
-        expect( truthyCheckbox.val() ).toEqual('true');        
-        expect( falsyCheckbox.val() ).toEqual('true');        
+        expect( truthyCheckbox.val() ).toEqual( 'true' );        
+        expect( falsyCheckbox.val() ).toEqual( 'true' );        
       });
       
       it( "should be checked if the span's text is truthy", function() {
@@ -371,6 +497,11 @@ describe( "EditableSet", function() {
       it( "should _not_ be checked if the span's text is falsy", function() {
         expect( falsyCheckbox.attr('checked') ).toBeFalsy();        
       });
+      
+      it( "should respect custom checked and unchecked values", function() {
+        expect( $('input[name="customer[likes_cheese]"][type="checkbox"]').val() ).toEqual( 'yes' );
+        expect( $('input[name="customer[likes_cheese]"][type="hidden"]').val() ).toEqual( 'no' );
+      });
     });
     
     
@@ -378,9 +509,22 @@ describe( "EditableSet", function() {
     // = Working with a non-existant form type =
     // =========================================
     
-    describe( "when attempting to conver to a non-existant form type", function() {
+    describe( "when attempting to convert to a non-existant form type", function() {
       it( "should skip form elements with non-existant form types", function() {
         expect( $('input[name="customer[is_confused]"]') ).not.toExist();
+      });
+    });
+  
+    
+    // ==========================================================
+    // = Ensuring that standard attributes are transferred okay =
+    // ==========================================================
+    
+    describe( "when converting to a form element", function() {
+      it( "should pass in non data attributes without error", function() {
+        expect( $('input[name="customer[is_classy]"]').hasClass('special') ).toBeTruthy();
+        expect( $('input[name="customer[is_classy]"]').attr('id') ).toEqual( 'customer_is_classy' );
+        expect( $('input[name="customer[is_classy]"]').attr('foo') ).toEqual( 'bar' );
       });
     });
     
@@ -391,7 +535,7 @@ describe( "EditableSet", function() {
   // = Dealing with the response =
   // =============================
   
-  describe( "after the form is submitted", function(){
+  describe( "after the form is submitted", function() {
     
     beforeEach(function() {
       // ======================================
@@ -410,6 +554,15 @@ describe( "EditableSet", function() {
       $('.editable').editableSet({ titleElement: 'h3' });
 
       
+    });
+    
+    
+    // ====================
+    // = Form is disabled =
+    // ====================
+    
+    it( "should disable all of the fields and buttons", function() {
+      
       // =======================
       // = Activate the plugin =
       // =======================
@@ -421,15 +574,7 @@ describe( "EditableSet", function() {
       // = Submit the form =
       // ===================
       
-			$(':submit', '.editable').trigger('click');
-    });
-    
-    
-    // ====================
-    // = Form is disabled =
-    // ====================
-    
-    it( "should disable all of the fields and buttons", function() {
+      $(':submit', '.editable').trigger('click');
       
       // Make sure each of the inputs is disabled
       var inputs = $(':input', '#test');
@@ -439,87 +584,169 @@ describe( "EditableSet", function() {
     });
     
     
-    // =====================
-    // = Data Repopulation =
-    // =====================
-    
-    describe( "populates the DOM with the new values", function(){
-			
+    var populationTests = function() {
       // textfield with no association
-			it( "should correctly populate a textfield with no association", function() {
-        expect( $('span[name="customer[street1]"]').text() ).toEqual('456 Real St.');			  
-			});
+      it( "should correctly populate a textfield with no association", function() {
+        expect( $('span[data-name="customer[street1]"]').text() ).toEqual('456 Real St.');       
+      });
+
+      // email field with no association
+      it( "should correctly populate an email field with no association", function() {
+        expect( $('span[data-name="customer[email]"]').text() ).toEqual('george.bluth@gmail.com');       
+      });
+      
+      // url field with no association
+      it( "should correctly populate a url field with no association", function() {
+        expect( $('span[data-name="customer[url]"]').text() ).toEqual('http://github.com/miwillhite/editable-set');       
+      });
+      
+      // number field with no association
+      it( "should correctly populate a number field with no association", function() {
+        expect( $('span[data-name="customer[age]"]').text() ).toEqual('119');       
+      });
+      
+      // range field with no association
+      it( "should correctly populate a range field with no association", function() {
+        expect( $('span[data-name="customer[rage]"]').text() ).toEqual('0');       
+      });
       
       // textfield with simple asssociation 
       it( "should correctly populate a textfield with simple asssociation", function() {
-        expect( $('span[name="customer[address_attributes][street1]"]').text() ).toEqual('Address 456 Real St.');        
+        expect( $('span[data-name="customer[address_attributes][street1]"]').text() ).toEqual('Address 456 Real St.');        
       });
 
       // textfield with deeply nested asssociation 
       it( "should correctly populate a textfield with deeply nested asssociation", function() {
-        expect( $('span[name="customer[employer_attributes][address_attributes][street1]"]').text() ).toEqual('Employer Address 456 Real St.');        
+        expect( $('span[data-name="customer[employer_attributes][address_attributes][street1]"]').text() ).toEqual('Employer Address 456 Real St.');        
       });
 
       // textfield with deeply nested asssociation, has many relationship 
       it( "should correctly populate a textfield with deeply nested asssociation, has many relationship", function() {
-        expect( $('span[name="customer[employers_attributes][0][address_attributes][street1]"]').text() ).toEqual('Employers Address 456 Real St.');        
+        expect( $('span[data-name="customer[employers_attributes][0][address_attributes][street1]"]').text() ).toEqual('Employers Address 456 Real St.');        
       });
 
       // textfield with deeply nested asssociation, two has many relationships 
       it( "should correctly populate a textfield with deeply nested asssociation, two has many relationships", function() {
-        expect( $('span[name="customer[more_employers_attributes][0][addresses_attributes][1][street1]"]').text() ).toEqual('Employers Addresses 456 Real St.');        
+        expect( $('span[data-name="customer[more_employers_attributes][0][addresses_attributes][1][street1]"]').text() ).toEqual('Employers Addresses 456 Real St.');        
       });
 
       // textfield with extremely deeply nested asssociation, three has many relationships 
       it( "should correctly populate a textfield with extremely deeply nested asssociation, three has many relationships", function() {
-        expect( $('span[name="customer[spouses_attributes][0][employers_attributes][1][addresses_attributes][2][street1]"]').text() ).toEqual('Spouses Employers Addresses 456 Real St.');        
+        expect( $('span[data-name="customer[spouses_attributes][0][employers_attributes][1][addresses_attributes][2][street1]"]').text() ).toEqual('Spouses Employers Addresses 456 Real St.');        
       });
 
       // textfield with extremely deeply nested asssociation, three has one relationships 
       it( "should correctly populate a textfield with extremely deeply nested asssociation, three has one relationships", function() {
-        expect( $('span[name="customer[spouse_attributes][employer_attributes][address_attributes][street1]"]').text() ).toEqual('Spouse Employer Address 456 Real St.');        
+        expect( $('span[data-name="customer[spouse_attributes][employer_attributes][address_attributes][street1]"]').text() ).toEqual('Spouse Employer Address 456 Real St.');        
       });
 
       // hidden field 
       it( "should correctly populate a hidden field", function() {
-        expect( $('span[name="customer[id]"]').text() ).toEqual('2');        
+        expect( $('span[data-name="customer[id]"]').text() ).toEqual('2');        
       });
 
       // textarea 
       it( "should correctly populate a textarea", function() {
-        expect( $('span[name="customer[notes]"]').text() ).toEqual('Is actually broke.');        
+        expect( $('span[data-name="customer[notes]"]').text() ).toEqual('Is actually broke.');        
       });
 
       // select menu, single-dimensional array 
       it( "should correctly populate a select menu, single-dimensional array", function() {
-        expect( $('span[name="customer[gender]"]').text() ).toEqual('Male');        
+        expect( $('span[data-name="customer[gender]"]').text() ).toEqual('Male');        
       });
 
       // select menu, multi-dimensional array 
       it( "should correctly populate a select menu, multi-dimensional array", function() {
-        expect( $('span[name="customer[personality]"]').text() ).toEqual('Outrageous');        
+        expect( $('span[data-name="customer[personality]"]').text() ).toEqual('Outrageous');        
       });
 
       // select menu, with custom prompt 
       it( "should correctly populate a select menu, with custom prompt", function() {
-        expect( $('span[name="customer[level_of_interest]"]').text() ).toEqual('Extremely');        
+        expect( $('span[data-name="customer[level_of_interest]"]').text() ).toEqual('Extremely');        
       });
 
       // radio, single-dimensional array 
       it( "should correctly populate a radio, single-dimensional array", function() {
-        expect( $('span[name="customer[eye_color]"]').text() ).toEqual('Hazel');        
+        expect( $('span[data-name="customer[eye_color]"]').text() ).toEqual('Hazel');        
       });
 
       // radio, multi-dimensional array 
       it( "should correctly populate a radio, multi-dimensional array", function() {
-        expect( $('span[name="customer[hair_color]"]').text() ).toEqual('Red');        
+        expect( $('span[data-name="customer[hair_color]"]').text() ).toEqual('Red');        
       });
 
       // checkbox 
       it( "should correctly populate a checkbox", function() {
-        expect( $('span[name="customer[is_alive]"]').text() ).toEqual('false');        
-        expect( $('span[name="customer[is_dead]"]').text() ).toEqual('true');
+        expect( $('span[data-name="customer[is_alive]"]').text() ).toEqual('false');        
+        expect( $('span[data-name="customer[is_dead]"]').text() ).toEqual('true');
+        expect( $('span[data-name="customer[likes_cheese]"]').text() ).toEqual('no');
       });
+    };
+    
+    
+    // =====================
+    // = Data Repopulation =
+    // =====================
+    
+    describe( "populates the DOM with the new values, no model as root in json", function() {
+      
+      beforeEach(function() {
+        // =======================
+        // = Activate the plugin =
+        // =======================
+
+        $('.editable').trigger( 'dblclick' );
+
+
+        // ===================
+        // = Submit the form =
+        // ===================
+
+        $(':submit', '.editable').trigger('click');
+      });
+      
+      
+      // ========================
+      // = Run the expectations =
+      // ========================
+      
+      populationTests();
+      
+    });
+
+
+    describe( "populates the DOM with the new values, model is root in json response", function() {
+      
+      // ===============================================================
+      // = Override the response to include the model as the root node =
+      // ===============================================================
+      
+      $.ajax = function(opts) {
+        opts.success.call( opts && opts.context, $.fn.testDataWithRoot, 'success' );
+      };
+      
+      
+      beforeEach(function() {
+        // =======================
+        // = Activate the plugin =
+        // =======================
+
+        $('.editable').trigger( 'dblclick' );
+
+
+        // ===================
+        // = Submit the form =
+        // ===================
+
+        $(':submit', '.editable').trigger('click');
+      });
+      
+      
+      // ========================
+      // = Run the expectations =
+      // ========================
+      
+      populationTests();
       
     });
     
@@ -872,7 +1099,7 @@ describe( "EditableSet", function() {
   // = Chaining methods/events =
   // ===========================
   
-  describe( "chainig methods/events", function() {
+  describe( "chaining methods/events", function() {
     
     it( "should be chainable", function() {
       

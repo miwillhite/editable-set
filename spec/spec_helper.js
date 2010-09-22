@@ -5,6 +5,10 @@
 $.fn.testData = {
   "id"                : "2",
   "street1"           : "456 Real St.",
+  "email"             : "george.bluth@gmail.com",
+  "url"               : "http://github.com/miwillhite/editable-set",
+  "age"               : "119",
+  "rage"               : "0",
   "notes"             : "Is actually broke.",
   "gender"            : "Male",
   "personality"       : "Outrageous",
@@ -13,6 +17,7 @@ $.fn.testData = {
   "hair_color"        : "Red",
   "is_alive"          : "false",
   "is_dead"           : "true",
+  "likes_cheese"      : "no",
   "address" : {
     "street1" : "Address 456 Real St."
   },
@@ -32,7 +37,7 @@ $.fn.testData = {
     { 
       "addresses" : [
         { "streetx" : "123 Fail St." },
-        { "street1" : "Employers Addresses 456 Real St." },
+        { "street1" : "Employers Addresses 456 Real St." }
       ]
     }
   ],
@@ -67,8 +72,12 @@ $.fn.testData = {
       "address" : {
         "street1" : "Spouse Employer Address 456 Real St."          
       }
-    },
+    }
   }
+};
+
+$.fn.testDataWithRoot = {
+  "customer" : $.fn.testData
 };
 
 

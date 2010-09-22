@@ -1,4 +1,4 @@
-EditableSet v0.6.2
+EditableSet v1.0
 ==================
 
 EditableSet is a jQuery edit-in-place plugin for editing entire sets of data at once.
@@ -6,12 +6,12 @@ EditableSet is a jQuery edit-in-place plugin for editing entire sets of data at 
 Brief Overview
 --------------
 
-**EditableSet was designed for Ruby on Rails apps, but it will work with any web application.\*** When activated, it wraps the target object’s inner html with a form, converts all named spans to inputs, then appends “Submit” and “Cancel” buttons. Pressing the “Save” button will submit the form via ajax (PUT). Originally based on and inspired by Mika Tuupola’s [Jeditable](http://www.appelsiini.net/projects/jeditable).
+**EditableSet was designed for Ruby on Rails apps, but it will work with any web application.\*** When activated, it wraps the target object's inner html with a form, converts all spans with the attribute "data-name" to inputs, then appends "Submit" and "Cancel" buttons. Pressing the "Save" button will submit the form via ajax (PUT). Originally based on and inspired by Mika Tuupola’s [Jeditable](http://www.appelsiini.net/projects/jeditable).
 
 You can play with a sample at [http://editable-set.heroku.com](http://editable-set.heroku.com).
 
 
-<small>* The default repopulation script will only work if the “name” attributes follow Rails’ conventions. This feature can be overridden.</small>
+<small>* The default repopulation script will only work if the "data-name" attributes follow Rails' "name" attribute conventions. This feature can be overridden.</small>
 
 Requirements
 ------------
@@ -23,14 +23,14 @@ A modern browser (Tested in Firefox 3.6+, Safari 5+, Chrome 5+, and IE 8+).
 
 Usage
 -----
-EditableSet is applied to an element that contains a collection of **named spans**. The individual **span's attributes** define the generated input field.
+EditableSet is applied to an element that contains a collection of **spans** that utilize the HTML5 **data-\*** attribute. The individual **span's attributes** define the generated input field.
 
 
 #### Basic Example:
 
 A 'text' input is the default:
 
-    <span name="applicant[address_attributes][city]" class="required">Portland</span>
+    <span data-name="applicant[address_attributes][city]" class="required">Portland</span>
 
 Generates:
     
@@ -43,7 +43,7 @@ Generates:
 
 Select menus and radio buttons can take a special `options` attribute containing a single or two dimensional array:
 
-    <span name="customer[hair_color]" options='[["Brown", "brown"], ["Blonde", "blonde"], ["Red", "red"]]'>Brown</span>
+    <span data-name="customer[hair_color]" data-options='[["Brown", "brown"], ["Blonde", "blonde"], ["Red", "red"]]'>Brown</span>
     
 Generates: 
     
@@ -74,7 +74,7 @@ Of course, chances are you will want to define a form action and various other o
 
 ## Supports the following input types:
 
-Textfield, Textarea, Checkbox, Select, Radio
+Text, Email, Url, Number, Range, Textarea, Checkbox, Select, Radio
 
 
 Todos
@@ -82,14 +82,13 @@ Todos
 
 * Convert docs to jsdoc
 * Test in more browsers
-* Allow repopulation to allow the default rails root\_in\_json
 * Test the shortcut key combos
-* Update for HTML5
-  * Look at new form types
-  * Use data-* instead of invalid attributes
+* Test the addInputType() method
 * Rethink the globalSave option
+* Change default datatype to 'json' rather than 'script'
 * Look at using the form conversion in html5 for future versions
-* Make 'rel' attribute an option, require it be turned on
+* Make 'rel' attribute an option, require it to be turned on
+* Update data-* retrieval with jQuery's new data() method when it becomes available
 
 
 Notes/Disclaimers
@@ -103,7 +102,7 @@ Note on Patches/Pull Request
 
 * Fork the project.
 * Make your feature addition or bug fix.
-* Add tests for it. This is important so I don’t break it in a future version unintentionally.
+* Add tests for it. This is important so I don't break it in a future version unintentionally.
 * Commit, do not mess with rakefile, version, or history. (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
 * Send me a pull request. Bonus points for topic branches.
 
